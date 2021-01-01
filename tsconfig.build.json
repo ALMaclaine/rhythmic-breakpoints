@@ -1,0 +1,13 @@
+{
+  "extends": "@almaclaine/ts-config",
+  "files": [
+    "./index.ts"
+  ],
+  "include": [
+    "src/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
