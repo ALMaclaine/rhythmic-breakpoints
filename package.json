@@ -1,6 +1,6 @@
 {
   "name": "rhythmic-breakpoints",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utility library for building rhythmic breakpoints with media-query-manager.",
   "main": "dist/index.bundle.js",
   "module": "dist/index.js",
@@ -33,7 +33,10 @@
     "url": ""
   },
   "homepage": "",
-  "dependencies": {},
+  "dependencies": {
+    "media-query-manager": "0.0.2",
+    "musical-ratios": "0.0.2"
+  },
   "devDependencies": {
     "@almaclaine/rollup-config": "^0.0.2",
     "@almaclaine/ts-config": "^0.0.1",
