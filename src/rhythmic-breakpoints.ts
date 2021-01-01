@@ -27,7 +27,7 @@ const rhymicBreakpointsDefaultParams: RhythmicBreakpointParams = {
     stepSize: 1
 }
 
-export function rhythmicBreakpoints(params: RhythmicBreakpointParams): MediaQueryManager {
+export function rhythmicBreakpoints(params: RhythmicBreakpointParams = {}): MediaQueryManager {
     const {baseWidth, ratio, highBpCount, lowBpCount, stepSize} = {...rhymicBreakpointsDefaultParams, ...params};
     const range = centeredRange(lowBpCount, highBpCount, stepSize);
     const bpWidths = range.map(e => baseWidth * ratioToPower(ratio, e));
