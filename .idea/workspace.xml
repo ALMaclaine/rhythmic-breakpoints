@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e641ee14-bcff-418f-b919-974ccd42c400" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rhythmic-breakpoints.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/rhythmic-breakpoints.ts" afterDir="false" />
     </list>
@@ -42,7 +41,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609538325679</updated>
-      <workItem from="1609538326819" duration="7705000" />
+      <workItem from="1609538326819" duration="8299000" />
     </task>
     <servers />
   </component>
