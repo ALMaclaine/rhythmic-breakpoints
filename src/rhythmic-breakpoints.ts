@@ -36,7 +36,7 @@ export class RhythmicBreakpoints extends MediaQueryManager {
         const bpWidths = range.map(e => baseWidth * ratioToPower(ratio, e));
         super(bpWidths);
         this._breakpointRatioMap = new Map<number, string>();
-        for (const breakPt of this.breaks) this._breakpointRatioMap.add(breakPt, MusicalRatios.PerfectFifth);
+        for (const breakPt of this.breaks) this._breakpointRatioMap.set(breakPt, MusicalRatios.PerfectFifth);
     }
 
     setBpInterval(breakPt: number, interval: string | MusicalRatios): void {
