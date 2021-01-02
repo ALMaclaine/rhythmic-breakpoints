@@ -4,5 +4,6 @@ exports[`rhythmic-breakpoints Has Correct API 1`] = `
 Array [
   "centeredRange",
   "rhythmicBreakpoints",
+  "RhythmicBreakpoints",
 ]
 `;
