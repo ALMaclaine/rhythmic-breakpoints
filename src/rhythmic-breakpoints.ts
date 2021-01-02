@@ -1,5 +1,5 @@
 import {RhythmicBreakpointParams} from "./types";
-import {MusicalRatios, ratioToPower} from "musical-ratios";
+import {MusicalRatios, ratioToInterval, ratioToPower} from "musical-ratios";
 import {MediaQueryManager} from "media-query-manager";
 
 export function centeredRange(start: number, end: number, stpSize: number = 1): number[] {
@@ -36,7 +36,7 @@ export class RhythmicBreakpoints extends MediaQueryManager {
         const bpWidths = range.map(e => baseWidth * ratioToPower(ratio, e));
         super(bpWidths);
         this._breakpointRatioMap = new Map<number, string>();
-        for (const breakPt of this.breaks) this._breakpointRatioMap.set(breakPt, MusicalRatios.PerfectFifth);
+        for (const breakPt of this.breaks) this._breakpointRatioMap.set(breakPt, ratioToInterval(MusicalRatios.PerfectFifth));
     }
 
     setBpInterval(breakPt: number, interval: string | MusicalRatios): void {
