@@ -4,4 +4,5 @@ export interface RhythmicBreakpointParams {
     highBpCount?: number;
     lowBpCount?: number;
     stepSize?: number;
+    baseFont?: number;
 }
