@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e641ee14-bcff-418f-b919-974ccd42c400" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rhythmic-breakpoints.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/rollup.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rhythmic-breakpoints.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/rhythmic-breakpoints.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/__snapshots__/rhythmic-breakpoints.test.ts.snap" beforeDir="false" afterPath="$PROJECT_DIR$/tests/__snapshots__/rhythmic-breakpoints.test.ts.snap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/rhythmic-breakpoints.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/rhythmic-breakpoints.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +43,7 @@
       <updated>1609538325679</updated>
       <workItem from="1609538326819" duration="8934000" />
       <workItem from="1610433181939" duration="639000" />
-      <workItem from="1633914229086" duration="1083000" />
+      <workItem from="1633914229086" duration="1148000" />
     </task>
     <servers />
   </component>
