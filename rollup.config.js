@@ -1,2 +1,2 @@
-import {PackageConfig} from '@almaclaine/rollup-config';
+import { PackageConfig } from '@almaclaine/rollup-config';
 export default PackageConfig;

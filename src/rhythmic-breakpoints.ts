@@ -1,13 +1,13 @@
-import {RhythmicBreakpointParams} from "./types";
-import {MusicalRatios, ratioToInterval, ratioToPower} from "musical-ratios";
-import {MediaQueryManager} from "media-query-manager";
+import { RhythmicBreakpointParams } from './types';
+import { MusicalRatios, ratioToInterval, ratioToPower } from 'musical-ratios';
+import { MediaQueryManager } from 'media-query-manager';
 
-export function centeredRange(start: number, end: number, stpSize: number = 1): number[] {
+export function centeredRange(start: number, end: number, stpSize = 1): number[] {
     const out = new Set<number>();
     let count = 0;
 
     for (let i = -stpSize; i > start - 1; i -= stpSize) {
-        out.add(start + stpSize * count++);
+        out.add(start + (stpSize * count++));
     }
 
     out.add(0);
@@ -19,14 +19,14 @@ export function centeredRange(start: number, end: number, stpSize: number = 1): 
     return Array.from<number>(out);
 }
 
-const rhymicBreakpointsDefaultParams: RhythmicBreakpointParams = {
+const rhymicBreakpointsDefaultParams: Required<RhythmicBreakpointParams> = {
     baseWidth: 1280,
     ratio: MusicalRatios.PerfectFifth,
     highBpCount: 3,
     lowBpCount: -3,
     stepSize: 1,
-    baseFont: 16
-}
+    baseFont: 16,
+};
 
 export const defaultRatios = [
     MusicalRatios.MajorSecond,
@@ -36,41 +36,50 @@ export const defaultRatios = [
     MusicalRatios.DiminishedFifth,
     MusicalRatios.AugmentedFourth,
     MusicalRatios.PerfectFifth,
-    MusicalRatios.GoldenRatio
+    MusicalRatios.GoldenRatio,
 ];
 
 export class RhythmicBreakpoints extends MediaQueryManager {
     private _breakpointRatioMap;
     private readonly _baseFont;
 
-    static createDefaultInstance() {
+    static createDefaultInstance(): MediaQueryManager {
         const mediaManager = new RhythmicBreakpoints();
         mediaManager.breaks.map((e, i) => mediaManager.setBpInterval(e, ratioToInterval(defaultRatios[i])));
         return mediaManager;
     }
 
-    handleUpdateBaseFont() {
-        document.querySelector('html').style.fontSize = `${this._baseFont / 16 * 100}%`
+    handleUpdateBaseFont(): void {
+        const node = document.querySelector('html');
+        if (node) {
+            node.style.fontSize = `${this._baseFont / 16 * 100}%`;
+        }
     }
 
     constructor(params: RhythmicBreakpointParams = {}) {
-        const {baseWidth, ratio, highBpCount, lowBpCount, stepSize, baseFont} = {...rhymicBreakpointsDefaultParams, ...params};
+        const { baseWidth, ratio, highBpCount, lowBpCount, stepSize, baseFont } = { ...rhymicBreakpointsDefaultParams, ...params };
         const range = centeredRange(lowBpCount, highBpCount, stepSize);
         const bpWidths = range.map(e => baseWidth * ratioToPower(ratio, e));
         super(bpWidths);
         this._baseFont = baseFont;
         this._breakpointRatioMap = new Map<number, string>();
-        for (const breakPt of this.breaks) this._breakpointRatioMap.set(breakPt, ratioToInterval(MusicalRatios.Unison));
+        for (const breakPt of this.breaks) {
+            this._breakpointRatioMap.set(breakPt, ratioToInterval(MusicalRatios.Unison) as string);
+        }
     }
 
     setBpInterval(breakPt: number, interval: string | MusicalRatios): void {
-        if (!this._breakpointRatioMap.has(breakPt)) throw new Error(`Invalid breakpoint: ${breakPt}`);
-        this._breakpointRatioMap.set(breakPt, interval);
+        if (!this._breakpointRatioMap.has(breakPt)) {
+            throw new Error(`Invalid breakpoint: ${breakPt}`);
+        }
+        this._breakpointRatioMap.set(breakPt, interval as string);
     }
 
     getBpInterval(breakPt: number): string | MusicalRatios {
-        if (!this._breakpointRatioMap.has(breakPt)) throw new Error(`Invalid breakpoint: ${breakPt}`);
-        return this._breakpointRatioMap.get(breakPt);
+        if (!this._breakpointRatioMap.has(breakPt)) {
+            throw new Error(`Invalid breakpoint: ${breakPt}`);
+        }
+        return this._breakpointRatioMap.get(breakPt) || '';
     }
 
     get breakpointRatioMap(): Map<number, string> {
@@ -79,15 +88,17 @@ export class RhythmicBreakpoints extends MediaQueryManager {
 
     set breakpointRatioMap(map: Map<number, string>) {
         const keys = Object.keys(map);
-        if(keys.sort().join(',') !== this.breaks.join(',')) {
+        if (keys.sort().join(',') !== this.breaks.join(',')) {
             throw new Error('invalid keys in map');
         }
         this._breakpointRatioMap = map;
     }
 
-    shiftBreakpoint(breakpoint: number, shift: number) {
+    shiftBreakpoint(breakpoint: number, shift: number): number {
         const index = this.breaks.indexOf(breakpoint);
-        if (index === -1) throw new Error('Invalid breakpoint');
+        if (index === -1) {
+            throw new Error('Invalid breakpoint');
+        }
         const shiftedIndex = index + shift;
         if (shiftedIndex < 0) {
             return this.breaks[0];
