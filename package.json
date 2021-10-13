@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/ALMaclaine/rhythmic-breakpoints",
   "dependencies": {
-    "media-query-manager": "0.0.8",
+    "media-query-manager": "0.0.10",
     "musical-ratios": "0.0.6"
   },
   "devDependencies": {

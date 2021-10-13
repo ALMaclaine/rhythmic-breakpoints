@@ -56,11 +56,11 @@ export class RhythmicBreakpoints extends MediaQueryManager {
         }
     }
 
-    constructor(params: RhythmicBreakpointParams = {}) {
+    constructor(params: RhythmicBreakpointParams = {}, { baseFontSize = 16, delayInit = false } = {}) {
         const { baseWidth, ratio, highBpCount, lowBpCount, stepSize, baseFont } = { ...rhymicBreakpointsDefaultParams, ...params };
         const range = centeredRange(lowBpCount, highBpCount, stepSize);
         const bpWidths = range.map(e => baseWidth * ratioToPower(ratio, e));
-        super(bpWidths);
+        super(bpWidths, { baseFontSize, delayInit });
         this._baseFont = baseFont;
         this._breakpointRatioMap = new Map<number, string>();
         for (const breakPt of this.breaks) {
