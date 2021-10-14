@@ -25,7 +25,8 @@ const rhymicBreakpointsDefaultParams: Required<RhythmicBreakpointParams> = {
     highBpCount: 3,
     lowBpCount: -3,
     stepSize: 1,
-    baseFont: 16,
+    baseFontSize: 16,
+    delayInit: false,
 };
 
 export const defaultRatios = [
@@ -41,27 +42,18 @@ export const defaultRatios = [
 
 export class RhythmicBreakpoints extends MediaQueryManager {
     private _breakpointRatioMap;
-    private readonly _baseFont;
 
-    public static createDefaultInstance(): MediaQueryManager {
-        const mediaManager = new RhythmicBreakpoints();
+    public static createDefaultInstance({ delayInit } : { delayInit: boolean }): MediaQueryManager {
+        const mediaManager = new RhythmicBreakpoints({ delayInit });
         mediaManager.breaks.map((e, i) => mediaManager.setBpInterval(e, ratioToInterval(defaultRatios[i])));
         return mediaManager;
     }
 
-    public handleUpdateBaseFont(): void {
-        const node = document.querySelector('html');
-        if (node) {
-            node.style.fontSize = `${this._baseFont / 16 * 100}%`;
-        }
-    }
-
-    constructor(params: RhythmicBreakpointParams = {}, { baseFontSize = 16, delayInit = false } = {}) {
-        const { baseWidth, ratio, highBpCount, lowBpCount, stepSize, baseFont } = { ...rhymicBreakpointsDefaultParams, ...params };
+    constructor(params: RhythmicBreakpointParams = {}) {
+        const { baseWidth, ratio, highBpCount, lowBpCount, stepSize, baseFontSize, delayInit } = { ...rhymicBreakpointsDefaultParams, ...params };
         const range = centeredRange(lowBpCount, highBpCount, stepSize);
         const bpWidths = range.map(e => baseWidth * ratioToPower(ratio, e));
         super(bpWidths, { baseFontSize, delayInit });
-        this._baseFont = baseFont;
         this._breakpointRatioMap = new Map<number, string>();
         for (const breakPt of this.breaks) {
             this._breakpointRatioMap.set(breakPt, ratioToInterval(MusicalRatios.Unison) as string);
