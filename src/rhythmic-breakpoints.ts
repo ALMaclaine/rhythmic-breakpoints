@@ -43,7 +43,7 @@ export const defaultRatios = [
 export class RhythmicBreakpoints extends MediaQueryManager {
     private _breakpointRatioMap;
 
-    public static createDefaultInstance({ delayInit } : { delayInit: boolean }): MediaQueryManager {
+    public static createDefaultInstance({ delayInit } : { delayInit?: boolean } = {}): MediaQueryManager {
         const mediaManager = new RhythmicBreakpoints({ delayInit });
         mediaManager.breaks.map((e, i) => mediaManager.setBpInterval(e, ratioToInterval(defaultRatios[i])));
         return mediaManager;
