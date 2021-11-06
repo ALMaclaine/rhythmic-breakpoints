@@ -1,6 +1,6 @@
 {
   "name": "rhythmic-breakpoints",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Utility library for building rhythmic breakpoints with media-query-manager.",
   "main": "dist/index.bundle.js",
   "module": "dist/index.js",
