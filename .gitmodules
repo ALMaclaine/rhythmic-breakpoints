@@ -1,0 +1,3 @@
+[submodule "npm_scripts"]
+	path = npm_scripts
+	url = https://www.github.com/almaclaine/npm_scripts

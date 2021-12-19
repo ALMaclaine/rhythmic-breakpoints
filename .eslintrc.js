@@ -1,3 +1,5 @@
 module.exports = {
-    extends: ['@almaclaine/eslint-config/'],
+    extends: [
+        './node_modules/@almaclaine/eslint-config/eslint.typescript.js',
+    ],
 };
