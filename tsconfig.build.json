@@ -10,12 +10,4 @@
     "node_modules",
     "dist"
   ],
-  "compilerOptions": {
-    "lib": [
-      "dom",
-      "es5",
-      "scripthost",
-      "es2015.collection"
-    ]
-  }
 }
