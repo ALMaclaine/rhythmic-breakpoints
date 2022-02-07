@@ -6,6 +6,7 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "start": "node npm_scripts/run_start.mjs",
     "test": "node npm_scripts/run_test.mjs",
     "test:update": "node npm_scripts/run_test.mjs update",
     "clean": "node npm_scripts/run_clean.mjs",
@@ -13,7 +14,8 @@
     "rollup": "node npm_scripts/run_rollup.mjs",
     "build": "node npm_scripts/run_build.mjs",
     "compile": "node npm_scripts/run_compile.mjs",
-    "prepublishOnly": "node npm_scripts/run_prepublish.mjs"
+    "prepublishOnly": "node npm_scripts/run_prepublish.mjs",
+    "blox": "npx gitblox"
   },
   "repository": {
     "type": "git",
@@ -40,10 +42,10 @@
     "musical-ratios": "^0.0.10"
   },
   "devDependencies": {
-    "@almaclaine/eslint-config": "^0.0.20",
+    "@almaclaine/eslint-config": "^0.0.21",
     "@almaclaine/jest-config": "^0.0.3",
-    "@almaclaine/npm-scripts": "^0.0.15",
-    "@almaclaine/rollup-config": "^0.0.18",
-    "@almaclaine/ts-config": "^0.2.12"
+    "@almaclaine/npm-scripts": "^0.0.18",
+    "@almaclaine/rollup-config": "^0.0.21",
+    "@almaclaine/ts-config": "^0.2.14"
   }
 }

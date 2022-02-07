@@ -1,0 +1,7 @@
+[
+  {
+    "type": "preset",
+    "repo": "git@github.com:almaclaine/gitblox_presets",
+    "file": "typescript_package.json"
+  }
+]
